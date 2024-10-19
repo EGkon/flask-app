@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App with JavaScript</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        // JavaScript function to validate form input
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            if (name === "") {
+                alert("Name must be filled out!");
+                return false;  // Prevent form submission if validation fails
+            }
+            return true;  // Allow form submission if validation passes
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to Flask with JavaScript</h1>
+
+    <!-- Form with onsubmit attribute to call JavaScript validation -->
+    <form action="/greet" method="POST" onsubmit="return validateForm()">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
